@@ -1,0 +1,42 @@
+{
+  "name": "lesspruino",
+  "version": "0.0.1",
+  "description": "A simple rapid-prototyping environment for Espruino development",
+  "main": "build/lesspruino.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test",
+    "example": "usage"
+  },
+  "devDependencies": {
+    "apage": "latest",
+    "coffee-script": "latest",
+    "nodemon": "latest"
+  },
+  "dependencies": {
+  },
+  "keywords": [
+    "CoffeeScript",
+    "Literate CoffeeScript",
+    "Espruino",
+    "emulator",
+    "development",
+    "simulate"
+  ],
+  "scripts": {
+    "hi": "open .; open index.html; open test/run-test.html; subl .",
+    "build": "node oopish/bin/oopish-build",
+    "doc": "node_modules/apage/bin/apage -i README.md doc/*.md -o index.html -p \"`cat node_modules/apage/build/plugin/*.js`\"",
+    "test": "node test/run-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richplastow/lesspruino.git"
+  },
+  "author": "Rich Plastow <rich@richplastow.com> (http://richplastow.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richplastow/lesspruino/issues"
+  },
+  "homepage": "http://lesspruino.richplastow.com/"
+}
