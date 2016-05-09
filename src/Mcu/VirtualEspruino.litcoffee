@@ -1,26 +1,25 @@
-SomeClass.FirstSubClass
-=======================
+Mcu.VirtualEspruino
+===================
 
 
-#### Inherits from `SomeClass` ...@todo describe
+#### Inherits from `Mcu` ...@todo describe
 
-    class SomeClass.FirstSubClass extends SomeClass
-      C: 'SomeClass.FirstSubClass'
-      toString: -> '[object SomeClass.FirstSubClass]'
+    class Mcu.VirtualEspruino extends Mcu
+      C: 'Mcu.VirtualEspruino'
+      toString: -> '[object Mcu.VirtualEspruino]'
 
 
 #### `constructor()`
 - `config <object> {}`       initial configuration
-  - `config.x <number> 123`  @todo describe
 - `<undefined>`              does not return anything
 
 @todo describe
 
       constructor: (config={}) ->
-        M = '/lesspruino/src/SomeClass/FirstSubClass.litcoffee
-          SomeClass.FirstSubClass()\n  '
+        M = '/lesspruino/src/Mcu/VirtualEspruino.litcoffee
+          Mcu.VirtualEspruino()\n  '
 
-Call `SomeClass::constructor(config)`. This will create the `@[oo._]` object. 
+Call `Mcu::constructor(config)`. This will create the `@[oo._]` object. 
 
         super config
 
@@ -36,10 +35,11 @@ Public Properties
 -----------------
 
 
-#### `x <number> 123`
-From `config.x`, @todo describe
+#### `width <integer>`, `height <integer>`
+@todo describe
 
-        @x = v 'x <number>', 123
+        @width  = 15 # pico is 8
+        @height = 20 # pico is 9
 
 
 
@@ -58,7 +58,7 @@ Private Properties
 
 Prevent properties being accidentally modified or added to the instance. 
 
-        if 'SomeClass.FirstSubClass' == @C then oo.lock @
+        if 'Mcu.VirtualEspruino' == @C then oo.lock @
 
 
 
@@ -74,8 +74,8 @@ Public Methods
 @todo describe
 
       xx: (yy) ->
-        M = '/lesspruino/src/SomeClass/FirstSubClass.litcoffee
-          SomeClass::xx()\n  '
+        M = '/lesspruino/src/Mcu/VirtualEspruino.litcoffee
+          Mcu::xx()\n  '
 
 Check that the arguments are valid, or fallback to defaults if undefined. 
 
@@ -94,9 +94,9 @@ Public Static Functions
 
 @todo describe
 
-    SomeClass.FirstSubClass.xx = (yy) ->
-      M = '/lesspruino/src/SomeClass/FirstSubClass.litcoffee
-        SomeClass.FirstSubClass.xx()\n  '
+    Mcu.VirtualEspruino.xx = (yy) ->
+      M = '/lesspruino/src/Mcu/VirtualEspruino.litcoffee
+        Mcu.VirtualEspruino.xx()\n  '
 
 Check that the arguments are valid, or fallback to defaults if undefined. 
 

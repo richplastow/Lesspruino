@@ -80,19 +80,20 @@ addEventListener('load', function () {
     //// Enable the action buttons. 
     for (i=0, l=$$actions.length; i<l; i++) {
         $$actions[i].addEventListener('click', function (event) {
+            var result;
             event.preventDefault();
             try {
-                eval(this.innerHTML);
+                result = eval(this.innerHTML);
             } catch (error) {
                 $log.innerHTML = 'Error:\n\n' + error;
                 return;
             }
-            stringify();
+            $log.innerHTML = result;
         });
     }
 
     //// Reveal the initial state of `lesspruino`. 
-    stringify();
+    $('#browse').click();
 });
   </script>
 </head>
@@ -104,9 +105,9 @@ addEventListener('load', function () {
   </header>
   <main>
     <nav id="actions">
-      <a href="#" class="button">lesspruino.add();</a><a
-         href="#" class="button">lesspruino.read();</a><a
-         href="#" class="button">lesspruino.browse();</a>
+      <a href="#" class="button" id="add"   >lesspruino.add();</a><a
+         href="#" class="button" id="read"  >lesspruino.read();</a><a
+         href="#" class="button" id="browse">lesspruino.browse();</a>
     </nav>
     <pre id="log">Loading...</pre>
   </main>

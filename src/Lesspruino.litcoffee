@@ -2,7 +2,7 @@ Lesspruino
 ==========
 
 
-#### The main class for Lesspruino
+#### The main class, used for creating a prototyping environment
 
     class Lesspruino
       C: 'Lesspruino'
@@ -32,10 +32,11 @@ Public Properties
 -----------------
 
 
-#### `x <number> 123`
-From `config.x`, @todo describe
+#### `width <integer> 80`, `height <integer> 24`
+From `config.width` and `config.height`. The number of pinds on the virtual PCB.
 
-        @x = v 'x <number>', 123
+        @width  = v 'width  <integer>', 80
+        @height = v 'height <integer>', 24
 
 
 
@@ -48,10 +49,10 @@ Create `@[oo._]`, a non-enumerable property with an unguessable name.
         oo.define @, oo._, {}, 'private'
 
 
-#### `_x <null>`
+#### `_mcus <[Mcu]> []`
 @todo describe
 
-        @[oo._]._x = null
+        @[oo._]._mcus = []
 
 
 
@@ -67,19 +68,74 @@ Public Methods
 --------------
 
 
-#### `xx()`
-- `yy <number> 123`  @todo describe
-- `<undefined>`      does not return anything
+#### `add()`
+- `config <object> {}`                        what to add, how to configure it
+  - `config.kind <string> 'VirtualEspruino'`  @todo describe
+- `<string>`                                  Unique identifier of the new item
 
 @todo describe
 
-      xx: (yy) ->
+      add: (config={}) ->
         M = '/lesspruino/src/Lesspruino.litcoffee
-          Lesspruino::xx()\n  '
+          Lesspruino::add()\n  '
 
-Check that the arguments are valid, or fallback to defaults if undefined. 
+Check that config is valid, or fallback to defaults if undefined. 
 
-        yy = oo.vArg M, yy, 'yy <number>', 123
+        v = oo.vObject M, 'config', config # checks `config`’s properties
+        kind = v 'kind <string>', 'VirtualEspruino' # @todo other kinds
+
+Add a real Espruino to the PCB. 
+
+        if 'RealEspruino' == kind
+          config.id = 're' + @[oo._]._mcus.length
+          @[oo._]._mcus.push new Mcu.RealEspruino config
+
+Add a virtual Espruino to the PCB. 
+
+        else if 'VirtualEspruino' == kind
+          config.id = 've' + @[oo._]._mcus.length
+          @[oo._]._mcus.push new Mcu.VirtualEspruino config
+
+        else
+          throw RangeError M + '`config.kind` not recognized'
+        return config.id
+
+
+
+
+#### `browse()`
+- `config <object> {}`                what to browse, how to render it
+  - `config.format <string> 'ascii'`  @todo describe
+- `<string>`                          @todo describe
+
+@todo describe
+
+      browse: (config={}) ->
+        M = '/lesspruino/src/Lesspruino.litcoffee
+          Lesspruino::browse()\n  '
+
+Check that config is valid, or fallback to defaults if undefined. 
+
+        v = oo.vObject M, 'config', config # checks `config`’s properties
+        format = v 'format <string>', 'ascii' # @todo other formats
+
+Render the browse-result as ascii. 
+
+        if 'ascii' == format
+          out = []
+          for y in [0..@height-1]
+            out.push row = []
+            row.push '.' for x in [0..@width]
+
+Render each component. @todo other components
+
+          mcu.render out for mcu in @[oo._]._mcus
+
+Output the finished ascii representation. 
+
+          out[i] = row.join '' for row,i in out
+            
+          out.join '\n'
 
 
 

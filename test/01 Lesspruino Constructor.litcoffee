@@ -46,15 +46,6 @@ Prepare a test-instance.
       tudor.equal
 
 
-      "`Lesspruino::x` is the number `123`"
-      123
-      (lesspruino) -> lesspruino.x
-
-
-      "`Lesspruino::_x` is private, and is null"
-      null
-      (lesspruino) -> lesspruino[oo._]._x
-
 
 
 

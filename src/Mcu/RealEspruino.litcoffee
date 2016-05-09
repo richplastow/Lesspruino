@@ -1,26 +1,25 @@
-SomeClass.SecondSubClass
-========================
+Mcu.RealEspruino
+================
 
 
-#### Inherits from `SomeClass` ...@todo describe
+#### Inherits from `Mcu` ...@todo describe
 
-    class SomeClass.SecondSubClass extends SomeClass
-      C: 'SomeClass.SecondSubClass'
-      toString: -> '[object SomeClass.SecondSubClass]'
+    class Mcu.RealEspruino extends Mcu
+      C: 'Mcu.RealEspruino'
+      toString: -> '[object Mcu.RealEspruino]'
 
 
 #### `constructor()`
 - `config <object> {}`       initial configuration
-  - `config.x <number> 123`  @todo describe
 - `<undefined>`              does not return anything
 
 @todo describe
 
       constructor: (config={}) ->
-        M = '/lesspruino/src/SomeClass/SecondSubClass.litcoffee
-          SomeClass.SecondSubClass()\n  '
+        M = '/lesspruino/src/Mcu/RealEspruino.litcoffee
+          Mcu.RealEspruino()\n  '
 
-Call `SomeClass::constructor(config)`. This will create the `@[oo._]` object. 
+Call `Mcu::constructor(config)`. This will create the `@[oo._]` object. 
 
         super config
 
@@ -34,12 +33,6 @@ Make `v()`, a function for checking that `config` properties are ok.
 
 Public Properties
 -----------------
-
-
-#### `x <number> 123`
-From `config.x`, @todo describe
-
-        @x = v 'x <number>', 123
 
 
 
@@ -58,7 +51,7 @@ Private Properties
 
 Prevent properties being accidentally modified or added to the instance. 
 
-        if 'SomeClass.SecondSubClass' == @C then oo.lock @
+        if 'Mcu.RealEspruino' == @C then oo.lock @
 
 
 
@@ -74,8 +67,8 @@ Public Methods
 @todo describe
 
       xx: (yy) ->
-        M = '/lesspruino/src/SomeClass/SecondSubClass.litcoffee
-          SomeClass::xx()\n  '
+        M = '/lesspruino/src/Mcu/RealEspruino.litcoffee
+          Mcu::xx()\n  '
 
 Check that the arguments are valid, or fallback to defaults if undefined. 
 
@@ -94,9 +87,9 @@ Public Static Functions
 
 @todo describe
 
-    SomeClass.SecondSubClass.xx = (yy) ->
-      M = '/lesspruino/src/SomeClass/SecondSubClass.litcoffee
-        SomeClass.SecondSubClass.xx()\n  '
+    Mcu.RealEspruino.xx = (yy) ->
+      M = '/lesspruino/src/Mcu/RealEspruino.litcoffee
+        Mcu.RealEspruino.xx()\n  '
 
 Check that the arguments are valid, or fallback to defaults if undefined. 
 

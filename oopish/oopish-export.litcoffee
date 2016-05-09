@@ -8,9 +8,9 @@ Prevent properties being accidentally modified or added to the module.
 @todo automate this
 
     oo.lock Lesspruino
-    oo.lock SomeClass
-    oo.lock SomeClass.FirstSubClass
-    oo.lock SomeClass.SecondSubClass
+    oo.lock Mcu
+    oo.lock Mcu.RealEspruino
+    oo.lock Mcu.VirtualEspruino
 
 First, try defining an AMD module, eg for [RequireJS](http://requirejs.org/). 
 

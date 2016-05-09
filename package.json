@@ -1,6 +1,6 @@
 {
   "name": "lesspruino",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple rapid-prototyping environment for Espruino development",
   "main": "build/lesspruino.js",
   "directories": {
